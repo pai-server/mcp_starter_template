@@ -97,7 +97,7 @@ def process_llm_response(response, placeholder_for_live_update):
             follow_up_response = st.session_state.llm_client.get_response(
                 clean_messages,
                 tools=tools_schema,
-                system_prompt="You are a helpful assistant. Use tools when appropriate. if you need to use google maps urls use this format https://www.google.com/maps/place/?q=place_id:ChIJTQGqdSv50YURz-imDdIQ2Bc with the place id from the place"
+                system_prompt="You are a helpful assistant. Use tools when appropriate."
             )
 
         # Process follow-up response (recursively)
