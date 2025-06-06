@@ -2,7 +2,7 @@
   "mcpServers": {
     "user-purchases": {
       "command": "python",
-      "args": ["-m", "src.mcp_servers.example_tool.first_example"]
+      "args": ["-m", "src.mcp_servers.example.main"]
     }
   }
 }
