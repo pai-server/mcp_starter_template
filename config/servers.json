@@ -1,40 +1,8 @@
 {
   "mcpServers": {
-    "sqlite": {
-      "command": "uvx",
-      "args": ["mcp-server-sqlite", "--db-path", "./mcp_dev.db"]
-    },
-    "google-maps": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-google-maps"]
-    },
-    "memory": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-memory"]
-    },
-    "time": {
-      "command": "uvx",
-      "args": ["mcp-server-time", "--local-timezone=America/Mexico_City"]
-    },
-    "tavily": {
-      "command": "npx",
-      "args": ["-y", "tavily-mcp"]
-    },
-    "sequential-thinking": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
-    },
-    "fetch": {
-      "command": "uvx",
-      "args": ["mcp-server-fetch"]
-    },
-    "terminal-controller": {
-      "command": "uvx",
-      "args": ["terminal_controller"]
-    },
     "user-purchases": {
       "command": "python",
-      "args": ["-m", "src.mcp_servers.example_tool.main"]
+      "args": ["-m", "src.mcp_servers.example_tool.first_example"]
     }
   }
 }
