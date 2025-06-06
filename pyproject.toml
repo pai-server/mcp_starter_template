@@ -1,0 +1,104 @@
+[project]
+name = "mcp-agents-starter-dev"
+version = "0.1.0"
+description = "A modular MCP (Model Context Protocol) client with CLI and web interfaces"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [
+    { name = "Alejandro", email = "alejandro@example.com" },
+]
+keywords = ["mcp", "ai", "anthropic", "streamlit", "cli"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "anthropic>=0.52.0",
+    "mcp>=1.9.1",
+    "streamlit>=1.45.1",
+    "python-dotenv>=1.0.0",
+    "tiktoken>=0.9.0",
+    "lmnr[all]>=0.6.8",
+    "rich>=14.0.0",
+    "fastmcp>=2.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0",
+    "pre-commit>=3.0.0",
+]
+test = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.scripts]
+mcp-cli = "interfaces.cli.app:main"
+mcp-web = "scripts.streamlit:main"
+
+[project.urls]
+Homepage = "https://github.com/your-username/mcp_agents_starter_dev"
+Repository = "https://github.com/your-username/mcp_agents_starter_dev"
+Documentation = "https://github.com/your-username/mcp_agents_starter_dev/blob/main/README.md"
+Issues = "https://github.com/your-username/mcp_agents_starter_dev/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0",
+    "pre-commit>=3.0.0",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+extend-select = ["I", "N", "UP", "RUF"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "RUF"]
+ignore = ["E501"]  # Line too long (black handles this)
+
+[tool.black]
+target-version = ["py312"]
+line-length = 88
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=src",
+    "--cov-report=term-missing",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+]
