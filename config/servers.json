@@ -1,20 +1,8 @@
 {
   "mcpServers": {
-    "sqlite": {
-      "command": "uvx",
-      "args": ["mcp-server-sqlite", "--db-path", "./mcp_dev.db"]
-    },
-    "google-maps": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-google-maps"]
-    },
-    "time": {
-      "command": "uvx",
-      "args": ["mcp-server-time", "--local-timezone=America/Mexico_City"]
-    },
-    "tavily": {
-      "command": "npx",
-      "args": ["-y", "tavily-mcp"]
+    "user-purchases": {
+      "command": "python",
+      "args": ["-m", "src.mcp_servers.example_tool.first_example"]
     }
   }
 }
